@@ -63,10 +63,23 @@ function updateDisplay() {
     const bookAuthor = document.createElement('p');
     const bookPages = document.createElement('p');
     const bookState = document.createElement('p');
+
+    const readButn = document.createElement('button');
+    readButn.classList.add('read-butn');
+    readButn.textContent = item.isCompleted ? 'unfinished' : 'finished';
   
     const deleteButn = document.createElement('button');
     deleteButn.classList.add('.delete-butn');
     deleteButn.textContent = 'Delete';
+
+    readButn.addEventListener('click', () => {
+      if (myLibrary[i].isCompleted) {
+        myLibrary[i].isCompleted = false;
+      } else {
+        myLibrary[i].isCompleted = true;
+      }
+      updateDisplay();
+    })
   
     deleteButn.addEventListener('click', () => {
       deleteItem(i);
@@ -81,6 +94,7 @@ function updateDisplay() {
     bookCard.appendChild(bookAuthor);
     bookCard.appendChild(bookPages);
     bookCard.appendChild(bookState);
+    bookCard.appendChild(readButn);
     bookCard.appendChild(deleteButn);
   
     mainContainer.appendChild(bookCard);

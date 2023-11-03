@@ -26,11 +26,13 @@ modal.addEventListener('close', () => {
   updateDisplay();
 });
 
-function Book(author, title, pages, isCompleted) {
-  this.author = author;
-  this.title = title;
-  this.pages = pages;
-  this.isCompleted = isCompleted;
+class Book {
+  constructor(author, title, pages, isCompleted) {
+    this.author = author;
+    this.title = title;
+    this.pages = pages;
+    this.isCompleted = isCompleted;
+  }
 }
 
 function addBookToLibrary(book) {
